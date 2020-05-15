@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title="Архив статей">
+    </head>
+    <body>
+        <div class="header">
+          <img src="static/imgs/imp.png">
+        </div>
+
+        <style>
+body {
+    background-image: url(static/imgs/fon.jpg);
+    font-family: Tahoma, Arial, sans-serif;
+    color: red;
+}
+
+.header img {
+    display: block;
+    width: 318px;
+    margin-left: auto;
+    margin-right: auto;
+
+.archive {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post-title a {
+    color: #ffffff;
+}
+.article-author {
+    width: 50%;
+    float: left;
+}
+.article-created-date {
+    text-align: right;
+}
+.article {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.exit {
+    float:left;
+    width: 200px;
+    text-align: right;
+}
+h1{
+    width: 960px;
+    text-align: right;
+}
+a{
+    color:#BDB76B ;
+}
+
+</style>
+
+        <div class="archive">
+          {% for post in posts %}
+          <div class="one-post">
+            <h2 class="post-title">{{ post.title }}
+            <a href="/article/{{ post.id }}">{{ post.title }}</a></h2>
+            <div class="article-info">
+              <div class="article-author">{{ post.author.username }}</div>
+              <div class="article-created- date">{{ post.created_date }}</div> </div>
+              <p class="article-text">{{ post.get_excerpt }}</p> </div>
+          {% endfor %}
+
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Django Public Blog - создать статью</title>
+        {% load static %}
+    <style>
+body {
+    background-image: url({% static 'imgs/fon2.jpg' %});
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;
+}
+.header img {
+    display: block;
+    width: 318px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.archive {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post-title a {
+    color: #ffffff;
+}
+.article-author {
+    width: 50%;
+    float: left;
+}
+.article-created-date {
+    text-align: right;
+}
+.article {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.exit {
+    float:left;
+    width: 200px;
+    text-align: right;
+}
+h1{
+    width: 960px;
+    text-align: right;
+}
+a{
+    color:#BDB76B ;
+}
+
+</style>
+
+    </head>
+    <body>
+        <div class="content">
+
+            <h1>Написать статью</h1>
+            <form method="POST">{% csrf_token %}
+                <input class="exit" type="text" name="title" placeholder="Название статьи" value="{{ form.title }}">
+                <textarea class="article" name="text" placeholder="Текст статьи">{{ form.text }}</textarea>
+                <input type="submit" value="Сохранить">
+            </form>
+
+        </div>
+        <h2 class="exit"><a href="/">Все статьи</a></h2>
+    </body>
+</html>
